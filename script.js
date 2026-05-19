@@ -7,152 +7,75 @@ const CERTS = [
     issuer: "NEBOSH · Birmingham, United Kingdom",
     year: "2019",
     desc: "International General Certificate in Occupational Health & Safety — one of the world's most recognised qualifications for health, safety, and environmental management.",
-    color: "#FFD700", accent: "#C8A800", icon: "⭐", tag: "PREMIUM CREDENTIAL"
+    img: "nebosh.jpg"
   },
   {
     title: "IOSH Certificate",
     issuer: "IOSH · United Kingdom",
     year: "2019",
     desc: "Certificate from the Institution of Occupational Safety and Health — the world's biggest professional health and safety membership organisation.",
-    color: "#FF6B00", accent: "#FF8C35", icon: "🏅", tag: "PREMIUM CREDENTIAL"
+    img: "iosh.jpg"
   },
   {
     title: "HSE Manager Qualification",
     issuer: "British Safety Service · Ouargla, Algeria",
     year: "2019",
     desc: "Professional qualification certifying competence in Health, Safety and Environmental management across industrial and commercial operations.",
-    color: "#FF6B00", accent: "#FF8C35", icon: "👷", tag: "PROFESSIONAL CERT"
+    img: "BritishSafetyService.jpg"
   },
   {
     title: "First Aid – Level 3",
     issuer: "Highfield Qualifications · Dubai, UAE",
     year: "2019",
     desc: "Internationally recognised Level 3 First Aid certificate covering emergency response, CPR, AED use, and workplace medical emergencies.",
-    color: "#FF3B5C", accent: "#cc2244", icon: "🚑", tag: "SAFETY CERT"
+    img: "FirstAid.jpg"
   },
   {
     title: "HACCP Certification",
     issuer: "British Safety Service · Algeria",
     year: "2019",
     desc: "Hazard Analysis and Critical Control Points — food hygiene and safety management system certification for pharmaceutical and food-adjacent industries.",
-    color: "#00D97E", accent: "#00aa60", icon: "🧪", tag: "FOOD SAFETY"
+    img: ""
   },
   {
     title: "Firefighting Training",
     issuer: "British Safety Service · Algeria",
     year: "2019",
     desc: "Professional fire safety and emergency response training covering fire prevention, suppression techniques, evacuation management, and incident command.",
-    color: "#FF6B00", accent: "#FF8C35", icon: "🔥", tag: "EMERGENCY RESPONSE"
+    img: "fire.jpg"
   },
   {
     title: "ATEX Training",
     issuer: "Industry Certification · Algeria",
     year: "Certified",
     desc: "Explosive Atmospheres (ATEX) directive safety training — hazard identification, zone classification, and equipment selection in explosive environments.",
-    color: "#FFD700", accent: "#C8A800", icon: "⚡", tag: "HAZARDOUS AREAS"
+    img: ""
   },
   {
     title: "Hazardous Chemicals",
     issuer: "Industry Certification · Algeria",
     year: "2022",
     desc: "Handling and storage of hazardous chemicals and pressurized gas — covering SDS interpretation, PPE selection, safe storage, and emergency response.",
-    color: "#00D97E", accent: "#00aa60", icon: "☢", tag: "CHEMICAL SAFETY"
+    img: ""
   },
   {
     title: "Electrical Habilitation",
     issuer: "Industry Certification · Algeria",
     year: "2022",
     desc: "Electrical safety habilitation for non-electricians — covering electrical hazard awareness, safe isolation procedures, and emergency protocols.",
-    color: "#FFD700", accent: "#C8A800", icon: "⚡", tag: "ELECTRICAL SAFETY"
+    img: ""
   },
   {
     title: "HSE Supervisor Certification",
     issuer: "TECHNOFORMAT School · Bouira, Algeria",
     year: "2016–2017",
     desc: "Foundational professional HSE Supervisor qualification covering risk assessment, legal compliance, safety management systems, and workplace inspection.",
-    color: "#FF6B00", accent: "#FF8C35", icon: "🛡", tag: "SUPERVISION CERT"
+    img: "TechnoFormat.jpg"
   }
 ];
 
-// Build SVG certificate placeholder
-function buildCertSVG(cert) {
-  const c = cert.color;
-  const a = cert.accent;
-  return `
-  <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="font-family:sans-serif">
-    <defs>
-      <linearGradient id="bg${cert.title.replace(/\s/g,'')}" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#0a0d14"/>
-        <stop offset="100%" stop-color="#111620"/>
-      </linearGradient>
-      <linearGradient id="accent${cert.title.replace(/\s/g,'')}" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="${c}"/>
-        <stop offset="100%" stop-color="${a}"/>
-      </linearGradient>
-    </defs>
-
-    <!-- Background -->
-    <rect width="400" height="280" fill="url(#bg${cert.title.replace(/\s/g,'')})"/>
-
-    <!-- Border -->
-    <rect x="6" y="6" width="388" height="268" fill="none" stroke="${c}" stroke-width="1" stroke-opacity="0.3" rx="6"/>
-    <rect x="12" y="12" width="376" height="256" fill="none" stroke="${c}" stroke-width="0.5" stroke-opacity="0.15" rx="4"/>
-
-    <!-- Top bar -->
-    <rect x="0" y="0" width="400" height="5" fill="url(#accent${cert.title.replace(/\s/g,'')})"/>
-
-    <!-- Corner decorations -->
-    <rect x="6" y="6" width="20" height="3" fill="${c}" opacity="0.6"/>
-    <rect x="6" y="6" width="3" height="20" fill="${c}" opacity="0.6"/>
-    <rect x="374" y="6" width="20" height="3" fill="${c}" opacity="0.6"/>
-    <rect x="391" y="6" width="3" height="20" fill="${c}" opacity="0.6"/>
-    <rect x="6" y="271" width="20" height="3" fill="${c}" opacity="0.6"/>
-    <rect x="6" y="254" width="3" height="20" fill="${c}" opacity="0.6"/>
-    <rect x="374" y="271" width="20" height="3" fill="${c}" opacity="0.6"/>
-    <rect x="391" y="254" width="3" height="20" fill="${c}" opacity="0.6"/>
-
-    <!-- Grid lines subtle -->
-    <line x1="0" y1="80" x2="400" y2="80" stroke="${c}" stroke-width="0.3" stroke-opacity="0.08"/>
-    <line x1="0" y1="200" x2="400" y2="200" stroke="${c}" stroke-width="0.3" stroke-opacity="0.08"/>
-    <line x1="120" y1="0" x2="120" y2="280" stroke="${c}" stroke-width="0.3" stroke-opacity="0.08"/>
-    <line x1="280" y1="0" x2="280" y2="280" stroke="${c}" stroke-width="0.3" stroke-opacity="0.08"/>
-
-    <!-- Icon circle -->
-    <circle cx="200" cy="75" r="32" fill="${c}" fill-opacity="0.1" stroke="${c}" stroke-width="1.5" stroke-opacity="0.4"/>
-    <circle cx="200" cy="75" r="24" fill="${c}" fill-opacity="0.08" stroke="${c}" stroke-width="0.5" stroke-opacity="0.2"/>
-    <text x="200" y="83" text-anchor="middle" font-size="22">${cert.icon}</text>
-
-    <!-- Certificate label -->
-    <text x="200" y="128" text-anchor="middle" font-size="8" fill="${c}" letter-spacing="4" opacity="0.7" font-family="monospace">${cert.tag}</text>
-
-    <!-- Divider -->
-    <line x1="80" y1="136" x2="320" y2="136" stroke="${c}" stroke-width="0.7" stroke-opacity="0.3"/>
-
-    <!-- Title -->
-    <text x="200" y="162" text-anchor="middle" font-size="16" fill="#F0F4FF" font-weight="bold" letter-spacing="1">${cert.title}</text>
-
-    <!-- Issuer -->
-    <text x="200" y="184" text-anchor="middle" font-size="8" fill="#8A9BB5" letter-spacing="1.5">${cert.issuer.split('·')[0].trim().toUpperCase()}</text>
-
-    <!-- Year badge -->
-    <rect x="166" y="196" width="68" height="18" rx="4" fill="${c}" fill-opacity="0.12" stroke="${c}" stroke-opacity="0.3" stroke-width="0.8"/>
-    <text x="200" y="208.5" text-anchor="middle" font-size="8" fill="${c}" letter-spacing="2" font-family="monospace">${cert.year}</text>
-
-    <!-- Bottom divider -->
-    <line x1="40" y1="230" x2="360" y2="230" stroke="${c}" stroke-width="0.5" stroke-opacity="0.2"/>
-
-    <!-- Seal -->
-    <circle cx="200" cy="252" r="12" fill="none" stroke="${c}" stroke-width="1" stroke-opacity="0.35"/>
-    <circle cx="200" cy="252" r="8" fill="${c}" fill-opacity="0.12"/>
-    <text x="200" y="256" text-anchor="middle" font-size="8" fill="${c}" opacity="0.8">✓</text>
-
-    <!-- Verified text -->
-    <text x="200" y="272" text-anchor="middle" font-size="6.5" fill="#8A9BB5" letter-spacing="2" font-family="monospace">PLACEHOLDER — ADD REAL CERTIFICATE</text>
-  </svg>`;
-}
-
 // ===========================
-// CERT MODAL LOGIC
+// CERT MODAL LOGIC (UPDATED FOR REAL IMAGES)
 // ===========================
 let currentCertIdx = 0;
 const certModal = document.getElementById('certModal');
@@ -181,26 +104,59 @@ function closeCertModal() {
 
 function renderCertModal() {
   const cert = CERTS[currentCertIdx];
-  certFrame.innerHTML = buildCertSVG(cert);
+  certFrame.innerHTML = '';
+
+  if (cert.img) {
+    const imgEl = document.createElement('img');
+    imgEl.src = cert.img;
+    imgEl.alt = cert.title;
+    imgEl.style.maxWidth = '100%';
+    imgEl.style.maxHeight = '100%';
+    imgEl.style.objectFit = 'contain';
+    imgEl.style.display = 'block';
+    imgEl.style.borderRadius = '4px';
+    imgEl.style.boxShadow = '0 10px 30px rgba(0,0,0,0.6)';
+    imgEl.style.border = '1px solid rgba(255,107,0,0.2)';
+    imgEl.loading = 'lazy';
+    certFrame.appendChild(imgEl);
+  } else {
+    certFrame.innerHTML = `<div style="text-align:center; padding:40px; color:var(--gray);"><i class="fas fa-file-invoice" style="font-size:3.5rem; margin-bottom:15px; color:var(--orange); opacity:0.7;"></i><br><span style="font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1.2rem; tracking:1px;">DOCUMENT DIGITIZATION PENDING</span></div>`;
+  }
+
   modalTitle.textContent = cert.title;
-  modalIssuer.querySelector('span') ? (modalIssuer.querySelector('span').textContent = cert.issuer) : (modalIssuer.innerHTML = `<i class="fas fa-building"></i> <span>${cert.issuer}</span>`);
-  modalYear.querySelector('span') ? (modalYear.querySelector('span').textContent = cert.year) : (modalYear.innerHTML = `<i class="fas fa-calendar-check"></i> <span>${cert.year}</span>`);
+  if (modalIssuer.querySelector('span')) {
+    modalIssuer.querySelector('span').textContent = cert.issuer;
+  } else {
+    modalIssuer.innerHTML = `<i class="fas fa-building"></i> <span>${cert.issuer}</span>`;
+  }
+  
+  if (modalYear.querySelector('span')) {
+    modalYear.querySelector('span').textContent = cert.year;
+  } else {
+    modalYear.innerHTML = `<i class="fas fa-calendar-check"></i> <span>${cert.year}</span>`;
+  }
+
   modalDesc.textContent = cert.desc;
   modalCounter.textContent = `${currentCertIdx + 1} / ${CERTS.length}`;
-  // Animate in
+
   certFrame.style.opacity = '0';
-  certFrame.style.transform = 'scale(0.94)';
+  certFrame.style.transform = 'scale(0.97)';
   requestAnimationFrame(() => {
-    certFrame.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    certFrame.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
     certFrame.style.opacity = '1';
     certFrame.style.transform = 'scale(1)';
   });
 }
 
-// Attach click to cert cards
+// Attach listeners
 document.querySelectorAll('.cert-card[data-cert]').forEach(card => {
   card.addEventListener('click', () => openCertModal(parseInt(card.dataset.cert)));
-  card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openCertModal(parseInt(card.dataset.cert)); });
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openCertModal(parseInt(card.dataset.cert));
+    }
+  });
 });
 
 if (certModalClose) certModalClose.addEventListener('click', closeCertModal);
@@ -228,8 +184,10 @@ window.addEventListener('scroll', () => {
 // ===========================
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+}
 
 // ===========================
 // SCROLL REVEAL
@@ -462,20 +420,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===========================
-// CV DOWNLOAD — GOOGLE DRIVE
-// ===========================
-// Replace #DRIVE-LINK-HERE with your actual Google Drive shareable link
-// Example: https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing
-// For direct download use: https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
-const CV_LINK = '#DRIVE-LINK-HERE';
-document.querySelectorAll('#downloadCV, #heroDownloadCV').forEach(btn => {
-  if (btn) {
-    btn.addEventListener('click', (e) => {
-      if (CV_LINK === '#DRIVE-LINK-HERE') {
-        e.preventDefault();
-        alert('CV download link not yet configured.\nReplace #DRIVE-LINK-HERE with your Google Drive link.');
-      }
-    });
-  }
-});
