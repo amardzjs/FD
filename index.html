@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fares DOUANE | HSE Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scrollProgress"><div id="scrollBar"></div></div>
+<div id="cursor"></div>
+<div id="cursorDot"></div>
+<button id="backToTop" aria-label="Back to top"><i class="fas fa-crosshairs"></i></button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="nav-icon"><i class="fas fa-shield-halved"></i></span>
+    <span class="nav-name">F.DOUANE</span>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-sun" id="themeIcon"></i></button>
+    <a href="#DRIVE-LINK-HERE" target="_blank" class="btn-cv" id="downloadCV"><i class="fas fa-download"></i><span>Download CV</span></a>
+    <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CERT LIGHTBOX MODAL -->
+<div id="certModal" class="cert-modal" role="dialog" aria-modal="true">
+  <div class="cert-modal-backdrop" id="certBackdrop"></div>
+  <div class="cert-modal-container">
+    <button class="cert-modal-close" id="certModalClose"><i class="fas fa-times"></i></button>
+    <button class="cert-modal-nav prev" id="certPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="cert-modal-nav next" id="certNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="cert-modal-inner">
+      <div class="cert-modal-img-wrap">
+        <div class="cert-frame-grid"></div>
+        <div class="cert-frame" id="certFrame"></div>
+        <div class="cert-modal-note"><i class="fas fa-info-circle"></i> Replace SVG with your real certificate scan</div>
+      </div>
+      <div class="cert-modal-info">
+        <div class="cert-modal-tag">VERIFIED CREDENTIAL</div>
+        <h2 class="cert-modal-title" id="modalTitle">—</h2>
+        <div class="cert-modal-meta">
+          <div class="cert-modal-issuer" id="modalIssuer"><i class="fas fa-building"></i> <span>—</span></div>
+          <div class="cert-modal-year" id="modalYear"><i class="fas fa-calendar-check"></i> <span>—</span></div>
+        </div>
+        <p class="cert-modal-desc" id="modalDesc">—</p>
+        <div class="cert-modal-status"><span class="dot pulse"></span> Credential Verified</div>
+        <div class="cert-modal-counter" id="modalCounter">1 / 10</div>
+        <div class="cert-modal-keyboard"><i class="fas fa-keyboard"></i> ESC to close &nbsp;·&nbsp; ← → to navigate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-scanline"></div>
+  <div class="hazard-strip top"></div>
+
+  <div class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot pulse"></span> Available for Opportunities</div>
+      <h1 class="hero-name">Fares <span class="accent">DOUANE</span></h1>
+      <div class="hero-title-wrap">
+        <span class="hero-title-line"></span>
+        <span class="hero-title-text" id="typingText">HSE MANAGER</span>
+        <span class="hero-title-line"></span>
+      </div>
+      <p class="hero-tagline">Protecting People · Safeguarding Environments · Driving Zero-Incident Culture</p>
+      <div class="hero-tags">
+        <span><i class="fas fa-certificate"></i> NEBOSH IGC</span>
+        <span><i class="fas fa-award"></i> IOSH Certified</span>
+        <span><i class="fas fa-industry"></i> 8+ Years</span>
+        <span><i class="fas fa-globe"></i> ISO 14001/45001</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Get In Touch</a>
+        <a href="#experience" class="btn-secondary"><i class="fas fa-briefcase"></i> Experience</a>
+        <a href="#DRIVE-LINK-HERE" target="_blank" class="btn-secondary" id="heroDownloadCV"><i class="fas fa-download"></i> Download CV</a>
+      </div>
+    </div>
+
+    <!-- HERO PHOTO PLACEHOLDER -->
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-hud">
+        <span class="hud-corner tl"></span>
+        <span class="hud-corner tr"></span>
+        <span class="hud-corner bl"></span>
+        <span class="hud-corner br"></span>
+        <div class="hud-scan-line"></div>
+        <div class="hero-photo-inner">
+          <!-- Replace the div below with: <img src="your-photo.jpg" alt="Fares DOUANE" class="hero-real-photo"> -->
+          <div class="hero-photo-placeholder">
+            <div class="photo-rings">
+              <div class="photo-ring r1"></div>
+              <div class="photo-ring r2"></div>
+            </div>
+            <div class="photo-icon"><i class="fas fa-user-shield"></i></div>
+            <div class="photo-name">FARES DOUANE</div>
+            <div class="photo-sub">Add your photo here</div>
+          </div>
+        </div>
+        <div class="hud-tag tl-tag">HSE MGR</div>
+        <div class="hud-tag br-tag">ALG · 2025</div>
+        <div class="hud-ping top-right"></div>
+        <div class="hud-ping bottom-left" style="animation-delay:0.7s"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card"><div class="stat-num" data-target="8">0</div><div class="stat-plus">+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-card"><div class="stat-num" data-target="5">0</div><div class="stat-plus"></div><div class="stat-label">Industries Covered</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-card"><div class="stat-num" data-target="10">0</div><div class="stat-plus">+</div><div class="stat-label">Certifications</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-card"><div class="stat-num" data-target="0">0</div><div class="stat-plus"></div><div class="stat-label">LTI Target</div></div>
+  </div>
+
+  <div class="hero-scroll-cue"><i class="fas fa-chevron-down"></i></div>
+  <div class="hazard-strip bottom"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// PROFILE</span>
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p class="about-intro">Results-driven HSE Manager with over <strong>8 years of progressive experience</strong> across pharmaceutical manufacturing, oil & gas, and construction industries in Algeria.</p>
+        <p>Holder of internationally recognized qualifications (<strong>NEBOSH IGC, IOSH</strong>) with deep expertise in risk assessment, regulatory compliance, ISO management systems, and emergency response. Proven leader in building safety cultures, driving zero-incident environments, and aligning operations with <strong>GMP, ATEX, and OEB 5</strong> containment requirements.</p>
+        <div class="about-meta">
+          <div class="meta-item"><i class="fas fa-map-marker-alt"></i><span>Haizer, Bouira, Algeria</span></div>
+          <div class="meta-item"><i class="fas fa-phone"></i><span>+213 659 569 757</span></div>
+          <div class="meta-item"><i class="fas fa-envelope"></i><span>faresdouane@gmail.com</span></div>
+          <div class="meta-item"><i class="fab fa-linkedin"></i><span>Fares DOUANE</span></div>
+          <div class="meta-item"><i class="fas fa-language"></i><span>Arabic · French · English</span></div>
+          <div class="meta-item"><i class="fas fa-check-circle"></i><span>Military: Cleared | Open to Relocation</span></div>
+        </div>
+      </div>
+      <div class="about-panel">
+        <div class="panel-header"><i class="fas fa-tachometer-alt"></i> HSE SYSTEM STATUS</div>
+        <div class="panel-rows">
+          <div class="panel-row"><span>Risk Assessment</span><span class="status-ok">ACTIVE</span></div>
+          <div class="panel-row"><span>ISO Compliance</span><span class="status-ok">CERTIFIED</span></div>
+          <div class="panel-row"><span>Emergency Response</span><span class="status-ok">READY</span></div>
+          <div class="panel-row"><span>Audit Program</span><span class="status-ok">RUNNING</span></div>
+          <div class="panel-row"><span>Incident Rate</span><span class="status-ok">TARGET: ZERO</span></div>
+          <div class="panel-row"><span>Team Leadership</span><span class="status-ok">ENGAGED</span></div>
+        </div>
+        <div class="panel-footer"><span class="dot pulse"></span> ALL SYSTEMS OPERATIONAL</div>
+      </div>
+    </div>
+    <div class="key-attrs reveal">
+      <div class="attr-card"><i class="fas fa-users-cog"></i><span>Team Leadership</span></div>
+      <div class="attr-card"><i class="fas fa-search"></i><span>Methodical Approach</span></div>
+      <div class="attr-card"><i class="fas fa-comments"></i><span>Strong Communicator</span></div>
+      <div class="attr-card"><i class="fas fa-sync-alt"></i><span>Highly Adaptable</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section dark-section">
+  <div class="hazard-strip top thin"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// COMPETENCIES</span>
+      <h2 class="section-title">Core <span class="accent">Skills</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><i class="fas fa-hard-hat"></i> Health & Safety</div>
+        <div class="skill-bar-wrap"><span>Risk Assessment & HAZID</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div><span class="skill-pct">95%</span></div>
+        <div class="skill-bar-wrap"><span>Emergency Response</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div><span class="skill-pct">92%</span></div>
+        <div class="skill-bar-wrap"><span>Incident Investigation</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-wrap"><span>Permit-to-Work Systems</span><div class="skill-bar"><div class="skill-fill" data-w="93"></div></div><span class="skill-pct">93%</span></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><i class="fas fa-leaf"></i> Environmental & ISO</div>
+        <div class="skill-bar-wrap"><span>ISO 14001 / 45001 / 9001</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-wrap"><span>Waste Management</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-bar-wrap"><span>Environmental Monitoring</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-wrap"><span>ISO 22000 / HACCP</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><i class="fas fa-flask"></i> Pharma & Industrial</div>
+        <div class="skill-bar-wrap"><span>GMP & GDP Compliance</span><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div><span class="skill-pct">92%</span></div>
+        <div class="skill-bar-wrap"><span>ATEX & OEB 5 Containment</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-bar-wrap"><span>Confined Space / Work at Height</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-wrap"><span>Regulatory Compliance</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div><span class="skill-pct">95%</span></div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title"><i class="fas fa-chart-line"></i> Leadership & Systems</div>
+        <div class="skill-bar-wrap"><span>HSE Audit & Inspection</span><div class="skill-bar"><div class="skill-fill" data-w="93"></div></div><span class="skill-pct">93%</span></div>
+        <div class="skill-bar-wrap"><span>KPI Development & Reporting</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-bar-wrap"><span>Safety Training & Leadership</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div><span class="skill-pct">95%</span></div>
+        <div class="skill-bar-wrap"><span>HSE Budget Management</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+      </div>
+    </div>
+    <div class="competency-tags reveal">
+      <span><i class="fas fa-check"></i> Cross-functional Team Coordination</span>
+      <span><i class="fas fa-check"></i> Hazardous Chemicals Handling</span>
+      <span><i class="fas fa-check"></i> Firefighting Training</span>
+      <span><i class="fas fa-check"></i> First Aid Level 3</span>
+      <span><i class="fas fa-check"></i> Electrical Habilitation</span>
+      <span><i class="fas fa-check"></i> Edraw-Max / MS Office</span>
+      <span><i class="fas fa-check"></i> Scaffold & Lifting Inspection</span>
+      <span><i class="fas fa-check"></i> Pest Control Management</span>
+    </div>
+  </div>
+  <div class="hazard-strip bottom thin"></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// CAREER</span>
+      <h2 class="section-title">Professional <span class="accent">Experience</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pharma"><i class="fas fa-pills"></i> Pharma</button>
+      <button class="filter-btn" data-filter="oilgas"><i class="fas fa-fire-flame-curved"></i> Oil & Gas</button>
+      <button class="filter-btn" data-filter="construction"><i class="fas fa-building-columns"></i> Construction</button>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal" data-sector="pharma">
+        <div class="timeline-dot"><i class="fas fa-shield-halved"></i></div>
+        <div class="timeline-card current">
+          <div class="tc-header">
+            <div><div class="tc-date"><i class="fas fa-calendar"></i> Nov 2025 – Present</div><h3 class="tc-role">HSE Manager</h3><div class="tc-company"><i class="fas fa-industry"></i> APP SPA (HYDRAPHARM Group) · Senia, Oran</div></div>
+            <span class="tc-badge current-badge">CURRENT</span>
+          </div>
+          <div class="tc-sector"><i class="fas fa-pills"></i> Pharmaceutical Manufacturing</div>
+          <ul class="tc-list">
+            <li>Define, implement & monitor site-wide HSE policy aligned with national and international standards</li>
+            <li>Conduct Single Risk Assessments, chemical risk evaluations, ATEX & OEB 5 containment strategies</li>
+            <li>Lead cross-functional HSE teams; collaborate with Production, Maintenance, Quality & HR</li>
+            <li>Drive internal/external audit programs; ensure full regulatory compliance</li>
+            <li>Oversee emergency response planning, crisis management, and incident investigations</li>
+            <li>Manage HSE budgets; define & monitor KPIs reported to senior management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-sector="pharma">
+        <div class="timeline-dot"><i class="fas fa-clipboard-check"></i></div>
+        <div class="timeline-card">
+          <div class="tc-header">
+            <div><div class="tc-date"><i class="fas fa-calendar"></i> Oct 2020 – Aug 2025</div><h3 class="tc-role">HSE Supervisor</h3><div class="tc-company"><i class="fas fa-truck"></i> BIOPHARM Logistic SPA · Oued El-Berdi, Bouira</div></div>
+            <span class="tc-badge">5 YEARS</span>
+          </div>
+          <div class="tc-sector"><i class="fas fa-pills"></i> Pharmaceutical Logistics</div>
+          <ul class="tc-list">
+            <li>Coordinated multi-supervisor HSE department; led daily/weekly cross-departmental safety meetings</li>
+            <li>Implemented comprehensive Pest Control programs for pharmaceutical compliance</li>
+            <li>Managed pharmaceutical & non-pharmaceutical waste disposal per regulatory requirements</li>
+            <li>Administered work permits; managed PPE programs and equipment inspections</li>
+            <li>Promoted HSE culture through orientation sessions and tailored training programs</li>
+            <li>Recorded and analyzed non-compliances, near-misses, and incidents for continuous improvement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-sector="oilgas">
+        <div class="timeline-dot"><i class="fas fa-oil-well"></i></div>
+        <div class="timeline-card">
+          <div class="tc-header">
+            <div><div class="tc-date"><i class="fas fa-calendar"></i> Jan 2020 – May 2020</div><h3 class="tc-role">HSE Manager</h3><div class="tc-company"><i class="fas fa-fire-flame-curved"></i> SAGC SARL – Sonatrach/AGIP · Hassi Messaoud</div></div>
+            <span class="tc-badge">OIL & GAS</span>
+          </div>
+          <div class="tc-sector"><i class="fas fa-gas-pump"></i> Oil & Gas / Energy</div>
+          <ul class="tc-list">
+            <li>Supervised HSE compliance for waterproofing works at living quarters and oil treatment centers</li>
+            <li>Conducted risk assessments per mission; managed simultaneous operations & co-activity conflicts</li>
+            <li>Facilitated HSE inductions, fire safety & first aid training, site-specific awareness sessions</li>
+            <li>Investigated accidents; inspected scaffolding, work at height, and lifting operations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-sector="construction">
+        <div class="timeline-dot"><i class="fas fa-building"></i></div>
+        <div class="timeline-card">
+          <div class="tc-header">
+            <div><div class="tc-date"><i class="fas fa-calendar"></i> 2018 – 2020</div><h3 class="tc-role">HSE Manager</h3><div class="tc-company"><i class="fas fa-hospital"></i> OUVRATECH TCE – SANOFI AVENTIS · Douera, Algiers</div></div>
+            <span class="tc-badge">PHARMA</span>
+          </div>
+          <div class="tc-sector"><i class="fas fa-pills"></i> Pharmaceutical Facility</div>
+          <ul class="tc-list">
+            <li>Developed HSE procedures and documentation for pharmaceutical facility implementation</li>
+            <li>Monitored critical operations: lifting, confined space, work at height, scaffolding</li>
+            <li>Delivered orientation, awareness and compliance training; participated in client meetings</li>
+            <li>Conducted regulatory monitoring for occupational health and safety</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal" data-sector="oilgas">
+        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-card">
+          <div class="tc-header">
+            <div><div class="tc-date"><i class="fas fa-calendar"></i> 2017</div><h3 class="tc-role">HSE Supervisor Intern</h3><div class="tc-company"><i class="fas fa-oil-well"></i> SONATRACH (Module Zero) · Hassi R'mel, Laghouat</div></div>
+            <span class="tc-badge">INTERN</span>
+          </div>
+          <div class="tc-sector"><i class="fas fa-gas-pump"></i> National Oil Company</div>
+          <ul class="tc-list">
+            <li>Supported HSE induction, work permit preparation (fire, lifting) and PPE management</li>
+            <li>Participated in emergency simulations: firefighting and first aid</li>
+            <li>Hands-on exposure to torch ignition operations and site marking procedures</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section dark-section">
+  <div class="hazard-strip top thin"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// CREDENTIALS</span>
+      <h2 class="section-title">Certifications & <span class="accent">Training</span></h2>
+      <div class="section-line"></div>
+      <p class="cert-hint"><i class="fas fa-hand-pointer"></i> Click any card to view certificate</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card premium reveal" data-cert="0" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-medal"></i></div>
+        <div class="cert-body"><div class="cert-issuer">NEBOSH · Birmingham, UK</div><h3>NEBOSH IGC</h3><p>International General Certificate in Occupational Health &amp; Safety</p><div class="cert-year">2019</div></div>
+        <div class="cert-glow"></div>
+      </div>
+      <div class="cert-card premium reveal" data-cert="1" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-award"></i></div>
+        <div class="cert-body"><div class="cert-issuer">IOSH · United Kingdom</div><h3>IOSH Certificate</h3><p>Institute of Occupational Safety &amp; Health</p><div class="cert-year">2019</div></div>
+        <div class="cert-glow"></div>
+      </div>
+      <div class="cert-card reveal" data-cert="2" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-user-tie"></i></div>
+        <div class="cert-body"><div class="cert-issuer">British Safety Service · Ouargla</div><h3>HSE Manager Qualification</h3><p>Professional HSE Management Certification</p><div class="cert-year">2019</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="3" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-kit-medical"></i></div>
+        <div class="cert-body"><div class="cert-issuer">Highfield · Dubai, UAE</div><h3>First Aid – Level 3</h3><p>Highfield International First Aid Certificate</p><div class="cert-year">2019</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="4" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-utensils"></i></div>
+        <div class="cert-body"><div class="cert-issuer">British Safety Service</div><h3>HACCP</h3><p>Food Hygiene &amp; Safety Certification</p><div class="cert-year">2019</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="5" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-fire-extinguisher"></i></div>
+        <div class="cert-body"><div class="cert-issuer">British Safety Service</div><h3>Firefighting Training</h3><p>Professional Fire Safety &amp; Response</p><div class="cert-year">2019</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="6" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-explosion"></i></div>
+        <div class="cert-body"><div class="cert-issuer">Industry Certification</div><h3>ATEX Training</h3><p>Explosive Atmospheres Safety Certification</p><div class="cert-year">Certified</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="7" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-biohazard"></i></div>
+        <div class="cert-body"><div class="cert-issuer">Algeria</div><h3>Hazardous Chemicals</h3><p>Handling &amp; Storage of Hazardous Chemicals &amp; Pressurized Gas</p><div class="cert-year">2022</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="8" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-bolt"></i></div>
+        <div class="cert-body"><div class="cert-issuer">Industry Certification</div><h3>Electrical Habilitation</h3><p>Electrical Safety for Non-Electricians</p><div class="cert-year">2022</div></div>
+      </div>
+      <div class="cert-card reveal" data-cert="9" tabindex="0" role="button">
+        <div class="cert-shine"></div><div class="cert-click-badge"><i class="fas fa-expand-alt"></i> VIEW</div>
+        <div class="cert-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="cert-body"><div class="cert-issuer">TECHNOFORMAT School · Bouira</div><h3>HSE Supervisor Certification</h3><p>Professional HSE Supervision Qualification</p><div class="cert-year">2016–2017</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hazard-strip bottom thin"></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// ACADEMIA</span>
+      <h2 class="section-title">Education & <span class="accent">Background</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="edu-degree">Master's Degree</div>
+        <div class="edu-field">Sociology: Organisation & Work Management</div>
+        <div class="edu-school"><i class="fas fa-university"></i> University of Akli Mohand Oulhadj</div>
+        <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Bouira, Algeria</div>
+        <div class="edu-years">2014 – 2016</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon"><i class="fas fa-book-open"></i></div>
+        <div class="edu-degree">Bachelor's Degree</div>
+        <div class="edu-field">Sociology: Organisation & Work Management</div>
+        <div class="edu-school"><i class="fas fa-university"></i> University of Akli Mohand Oulhadj</div>
+        <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Bouira, Algeria</div>
+        <div class="edu-years">2011 – 2014</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon"><i class="fas fa-school"></i></div>
+        <div class="edu-degree">Baccalaureate</div>
+        <div class="edu-field">Economic Management</div>
+        <div class="edu-school"><i class="fas fa-building-columns"></i> Amzil Amhamed High School</div>
+        <div class="edu-location"><i class="fas fa-map-marker-alt"></i> Haizer, Bouira, Algeria</div>
+        <div class="edu-years">2011</div>
+      </div>
+    </div>
+    <div class="equipment-section reveal">
+      <div class="eq-header"><i class="fas fa-cogs"></i> Equipment & Licenses</div>
+      <div class="eq-grid">
+        <div class="eq-item"><i class="fas fa-forklift"></i><span>Electric Pallet Truck</span></div>
+        <div class="eq-item"><i class="fas fa-forklift"></i><span>Tridirectional Forklift</span></div>
+        <div class="eq-item"><i class="fas fa-arrows-up-down"></i><span>Scissor Lift</span></div>
+        <div class="eq-item"><i class="fas fa-arrow-up-from-ground-water"></i><span>Telescopic Lift</span></div>
+        <div class="eq-item"><i class="fas fa-forklift"></i><span>Forklift (Licensed)</span></div>
+        <div class="eq-item"><i class="fas fa-laptop"></i><span>MS Office Suite</span></div>
+        <div class="eq-item"><i class="fas fa-diagram-project"></i><span>Edraw-Max</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages" class="section dark-section">
+  <div class="hazard-strip top thin"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// LANGUAGES</span>
+      <h2 class="section-title">Language <span class="accent">Proficiency</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="lang-grid reveal">
+      <div class="lang-card">
+        <div class="lang-ring-wrap"><svg class="lang-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="50"/><circle class="ring-fill" cx="60" cy="60" r="50" data-pct="100" stroke-dasharray="314" stroke-dashoffset="314"/></svg><div class="lang-pct">100%</div></div>
+        <div class="lang-name">Arabic</div><div class="lang-level">Native / Mother Tongue</div><div class="lang-flag">🇩🇿</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-ring-wrap"><svg class="lang-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="50"/><circle class="ring-fill" cx="60" cy="60" r="50" data-pct="85" stroke-dasharray="314" stroke-dashoffset="314"/></svg><div class="lang-pct">85%</div></div>
+        <div class="lang-name">French</div><div class="lang-level">Professional Proficiency</div><div class="lang-flag">🇫🇷</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-ring-wrap"><svg class="lang-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="50"/><circle class="ring-fill" cx="60" cy="60" r="50" data-pct="80" stroke-dasharray="314" stroke-dashoffset="314"/></svg><div class="lang-pct">80%</div></div>
+        <div class="lang-name">English</div><div class="lang-level">Professional Proficiency</div><div class="lang-flag">🇬🇧</div>
+      </div>
+    </div>
+  </div>
+  <div class="hazard-strip bottom thin"></div>
+</section>
+
+<!-- ISO -->
+<section id="iso" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// STANDARDS</span>
+      <h2 class="section-title">ISO & <span class="accent">Standards Expertise</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="iso-grid reveal">
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-hard-hat"></i></div><div class="iso-num">ISO 45001</div><div class="iso-desc">Occupational Health &amp; Safety Management</div><div class="iso-check"><i class="fas fa-check-circle"></i> Certified Expert</div></div>
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-leaf"></i></div><div class="iso-num">ISO 14001</div><div class="iso-desc">Environmental Management Systems</div><div class="iso-check"><i class="fas fa-check-circle"></i> Certified Expert</div></div>
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-medal"></i></div><div class="iso-num">ISO 9001</div><div class="iso-desc">Quality Management Systems</div><div class="iso-check"><i class="fas fa-check-circle"></i> Certified Expert</div></div>
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-utensils"></i></div><div class="iso-num">ISO 22000</div><div class="iso-desc">Food Safety Management Systems</div><div class="iso-check"><i class="fas fa-check-circle"></i> HACCP Trained</div></div>
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-explosion"></i></div><div class="iso-num">ATEX</div><div class="iso-desc">Explosive Atmospheres Directive</div><div class="iso-check"><i class="fas fa-check-circle"></i> Certified</div></div>
+      <div class="iso-badge"><div class="iso-icon"><i class="fas fa-flask"></i></div><div class="iso-num">OEB 5</div><div class="iso-desc">Occupational Exposure Band Containment</div><div class="iso-check"><i class="fas fa-check-circle"></i> Expert</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section id="sectors" class="section dark-section">
+  <div class="hazard-strip top thin"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// INDUSTRIES</span>
+      <h2 class="section-title">Sectors <span class="accent">Covered</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="sectors-grid reveal">
+      <div class="sector-card"><div class="sector-icon"><i class="fas fa-pills"></i></div><div class="sector-name">Pharmaceutical</div><div class="sector-years">5+ Years</div><div class="sector-detail">GMP · GDP · OEB 5 · ATEX · Cleanroom Safety · Pest Control · Waste Disposal</div><div class="sector-companies">APP SPA · BIOPHARM · SANOFI AVENTIS</div></div>
+      <div class="sector-card"><div class="sector-icon"><i class="fas fa-fire-flame-curved"></i></div><div class="sector-name">Oil & Gas</div><div class="sector-years">1+ Year</div><div class="sector-detail">ATEX · H2S · Simultaneous Ops · Work Permits · Torch Ignition · Lifting & Scaffolding</div><div class="sector-companies">Sonatrach · AGIP · SAGC SARL</div></div>
+      <div class="sector-card"><div class="sector-icon"><i class="fas fa-building-columns"></i></div><div class="sector-name">Construction</div><div class="sector-years">3+ Years</div><div class="sector-detail">Work at Height · Confined Space · Scaffolding · Lifting Ops · PPE Programs</div><div class="sector-companies">OUVRATECH TCE · Multiple Sites</div></div>
+      <div class="sector-card"><div class="sector-icon"><i class="fas fa-truck"></i></div><div class="sector-name">Logistics</div><div class="sector-years">5 Years</div><div class="sector-detail">Warehouse Safety · Forklift Ops · Hazmat Storage · Cross-dept Coordination</div><div class="sector-companies">BIOPHARM Logistic SPA</div></div>
+    </div>
+  </div>
+  <div class="hazard-strip bottom thin"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// CONNECT</span>
+      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+      <div class="section-line"></div>
+      <p class="contact-intro-text">Open to HSE management opportunities across pharmaceutical, oil & gas, construction, and industrial sectors — locally and internationally.</p>
+    </div>
+
+    <div class="contact-cards reveal">
+      <a href="tel:+213659569757" class="contact-card">
+        <div class="cc-glow"></div>
+        <div class="cc-icon-wrap"><i class="fas fa-phone-volume"></i></div>
+        <div class="cc-label">Phone</div>
+        <div class="cc-value">+213 659 569 757</div>
+        <div class="cc-action">Tap to Call <i class="fas fa-long-arrow-alt-right"></i></div>
+      </a>
+      <a href="mailto:faresdouane@gmail.com" class="contact-card">
+        <div class="cc-glow"></div>
+        <div class="cc-icon-wrap"><i class="fas fa-envelope-open-text"></i></div>
+        <div class="cc-label">Email</div>
+        <div class="cc-value">faresdouane@gmail.com</div>
+        <div class="cc-action">Send Email <i class="fas fa-long-arrow-alt-right"></i></div>
+      </a>
+      <a href="https://www.linkedin.com/in/fares-douane" target="_blank" rel="noopener" class="contact-card cc-linkedin-card">
+        <div class="cc-glow cc-glow-blue"></div>
+        <div class="cc-icon-wrap cc-li"><i class="fab fa-linkedin-in"></i></div>
+        <div class="cc-label">LinkedIn</div>
+        <div class="cc-value">Fares DOUANE</div>
+        <div class="cc-action">View Profile <i class="fas fa-long-arrow-alt-right"></i></div>
+      </a>
+    </div>
+
+    <div class="contact-bottom reveal">
+      <div class="contact-location-strip">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Haizer, Bouira, Algeria</span>
+        <span class="cdot">·</span><span>Open to Relocation</span>
+        <span class="cdot">·</span><span>Open to Night Shifts</span>
+        <span class="cdot">·</span><span>Military: Cleared</span>
+      </div>
+      <div class="availability-pill">
+        <span class="av-dot pulse"></span>
+        <span>Actively Available</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-content">
+    <div class="footer-brand"><span class="footer-icon"><i class="fas fa-shield-halved"></i></span><span>Fares DOUANE</span></div>
+    <div class="footer-tagline">HSE Manager · Protecting People & Environments</div>
+    <div class="footer-links">
+      <a href="mailto:faresdouane@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+213659569757"><i class="fas fa-phone"></i></a>
+      <a href="https://www.linkedin.com/in/fares-douane" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#DRIVE-LINK-HERE" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </div>
+    <div class="footer-copy">© 2025 Fares DOUANE · NEBOSH IGC · IOSH Certified · ISO Expert</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
